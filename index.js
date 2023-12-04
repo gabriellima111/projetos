@@ -1,25 +1,26 @@
-// nome do jogador, XP
+function calcularNivel(vitorias, derrotas) {
+    const saldoVitorias = vitorias - derrotas;
+    let nivel = '';
 
-let NomedoJogador= "Gabriel do java"
-let experiencia= "7500"
-let nivel=""
+    if (vitorias < 10) {
+        nivel = 'Ferro';
+    } else if (vitorias >= 11 && vitorias <= 20) {
+        nivel = 'Bronze';
+    } else if (vitorias >= 21 && vitorias <= 50) {
+        nivel = 'Prata';
+    } else if (vitorias >= 51 && vitorias <= 80) {
+        nivel = 'Ouro';
+    } else if (vitorias >= 81 && vitorias <= 90) {
+        nivel = 'Diamante';
+    } else if (vitorias >= 91 && vitorias <= 100) {
+        nivel = 'Lendário';
+    } else {
+        nivel = 'Imortal';
+    }
 
-if (experiencia < 1000) {
-    nivel = "Ferro";
-} else if (experiencia >= 1001 && experiencia <= 2000) {
-    nivel = "Bronze";
-} else if (experiencia >= 2001 && experiencia <= 5000) {
-    nivel = "Prata";
-} else if (experiencia >= 6001 && experiencia <= 7000) {
-    nivel = "Ouro";
-} else if (experiencia >= 7001 && experiencia <= 8000) {
-    nivel = "Platina";
-} else if (experiencia >= 8001 && experiencia <= 9000) {
-    nivel = "Ascendente";
-} else if (experiencia >= 9001 && experiencia <= 10000) {
-    nivel = "Imortal";
-} else if (experiencia >= 10001) {
-    nivel = "Radiante";
+    return `O Herói tem saldo de ${saldoVitorias} está no nível de ${nivel}`;
 }
 
-console.log ("O herói de nome " + NomedoJogador + " está no nivel de " +nivel) 
+// Exemplo de uso da função:
+const resultado = calcularNivel(85, 15);
+console.log(resultado); // Saída: "O Herói tem saldo de 70 está no nível de Ouro"
